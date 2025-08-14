@@ -1,0 +1,49 @@
+layer:
+  type: Board
+  description: Default KIT_T2G-B-H_LITE board setup
+  for-board: Infineon::KIT_T2G-B-H_LITE
+
+  generators:
+    options:
+      - generator: InfineonDeviceConfigurator
+        path: ./Device_Configurator
+        name: Board
+
+  packs:
+    - pack: Infineon::T2G-B-H_DFP@^1.2.0-0
+    - pack: Infineon::KIT_T2G-B-H_LITE_BSP@^1.1.0-0
+    - pack: ARM::CMSIS
+    - pack: ARM::CMSIS-RTX
+    - pack: ARM::CMSIS-Compiler
+
+  components:
+    - component: ARM::CMSIS:CORE
+    - component: ARM::CMSIS Driver:Ethernet MAC:Custom
+    - component: ARM::CMSIS Driver:Ethernet PHY:Custom
+    - component: ARM::CMSIS-Compiler:CORE
+    - component: ARM::CMSIS-Compiler:STDOUT:Custom
+    - component: Infineon::CMSIS Driver:VIO:Board&KIT_T2G-B-H_LITE
+    - component: Infineon::Device:Startup
+    - component: Infineon::Device:Peripheral Driver Library:PDL
+    - component: Infineon::Board Support&KIT_T2G-B-H_LITE:Board Setup
+    - component: Infineon::Device Configurator:Device Configurator
+
+  groups:
+    - group: CMSIS_EMAC_Driver
+      files:
+        - file: ./PHY_DP83825I.c
+        - file: ./EMAC_T2G.c
+    - group: Retarget_User
+      files:
+        - file: ./retarget_stdio.c
+    - group: Board_Main
+      files:
+        - file: ./main.c
+
+  add-path:
+    - ./
+    - ./Device_Configurator/GeneratedSource
+
+  define:
+    - CORE_NAME_CM7_0
+    - BASE_SRAM_NON_CACHE: BASE_SRAM_CM7_0

@@ -1,0 +1,55 @@
+project:
+  device: :Cortex-M0p
+  packs:
+    - pack: ARM::CMSIS@^6.2.0
+  setups:
+    - setup: Options for Target_1
+      debug: "on"
+      misc:
+        - C:
+            - -std=c99
+          C-CPP:
+            - -fno-rtti
+            - -funsigned-char
+            - -fshort-enums
+            - -fshort-wchar
+            - -ffunction-sections
+            - -Wall
+            - -Wextra
+            - -Wno-packed
+            - -Wno-reserved-id-macro
+            - -Wno-unused-macros
+            - -Wno-documentation-unknown-command
+            - -Wno-documentation
+            - -Wno-license-management
+            - -Wno-parentheses-equality
+            - -gdwarf-5
+          CPP:
+            - -xc++
+            - -std=c++11
+            - -fno-exceptions
+          ASM:
+            - -masm=auto
+          Link:
+            - --entry Reset_Handler
+            - --map
+            - --load_addr_map_info
+            - --xref
+            - --callgraph
+            - --symbols
+            - --info sizes
+            - --info totals
+            - --info unused
+            - --info veneers
+            - --strict
+            - --summary_stderr
+            - --info summarysizes
+  linker:
+    - script: RTE/Device/CYT4BF8CDS_Cortex-M0p/xmc7200d_x8384_cm0plus.sct
+  groups:
+    - group: Source Group 1
+      files:
+        - file: test.c
+  layers:
+    - layer: ../Board/KIT_T2G-B-H_LITE/Board.clayer.yml
+      type: Board
