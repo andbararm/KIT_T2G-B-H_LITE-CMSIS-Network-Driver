@@ -20,12 +20,12 @@ solution:
 
   target-types:
     - type: CYT4BF8CDS
-      device: CYT4BF8CDS:Cortex-M7-0
+      device: CYT4BF8CDS
       board: KIT_T2G-B-H_LITE:V1
     # - type: <target_name>
     #   board: <board_name>
       variables:
-        - Board-Layer: $SolutionDir()$/../Board/KIT_T2G-B-H_LITE/Board.clayer.yml
+        - Board-Layer: $SolutionDir()$/../Board/KIT_T2G-B-H_LITE/Cortex-M7-1/Board.clayer.yml
 
   build-types:
     - type: Debug

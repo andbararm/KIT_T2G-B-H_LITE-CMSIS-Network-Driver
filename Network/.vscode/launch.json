@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Cortex-M7-0 CMSIS_DAP@pyOCD (launch)",
+            "name": "Cortex-M7-1 CMSIS_DAP@pyOCD (launch)",
             "type": "gdbtarget",
             "request": "launch",
             "cwd": "${workspaceFolder}/",
@@ -41,7 +41,7 @@
             }
         },
         {
-            "name": "Cortex-M7-0 CMSIS_DAP@pyOCD (attach)",
+            "name": "Cortex-M7-1 CMSIS_DAP@pyOCD (attach)",
             "type": "gdbtarget",
             "request": "attach",
             "cwd": "${workspaceFolder}/",
@@ -87,7 +87,7 @@
             }
         },
         {
-            "name": "Cortex-M7-1 CMSIS_DAP@pyOCD (attach)",
+            "name": "Cortex-M7-0 CMSIS_DAP@pyOCD (attach)",
             "type": "gdbtarget",
             "request": "attach",
             "cwd": "${workspaceFolder}/",

@@ -3,17 +3,18 @@ layer:
   description: Default KIT_T2G-B-H_LITE board setup
   for-board: Infineon::KIT_T2G-B-H_LITE
 
+  device: :Cortex-M7-1
+
   generators:
     options:
       - generator: InfineonDeviceConfigurator
-        path: ./Device_Configurator
+        path: ../Device_Configurator
         name: Board
 
   packs:
     - pack: Infineon::T2G-B-H_DFP@^1.2.0-0
     - pack: Infineon::KIT_T2G-B-H_LITE_BSP@^1.1.0-0
     - pack: ARM::CMSIS
-    - pack: ARM::CMSIS-RTX
     - pack: ARM::CMSIS-Compiler
 
   components:
@@ -31,19 +32,20 @@ layer:
   groups:
     - group: CMSIS_EMAC_Driver
       files:
-        - file: ./PHY_DP83825I.c
-        - file: ./EMAC_T2G.c
+        - file: ../PHY_DP83825I.c
+        - file: ../EMAC_T2G.c
     - group: Retarget_User
       files:
-        - file: ./retarget_stdio.c
+        - file: ../retarget_stdio.c
     - group: Board_Main
       files:
         - file: ./main.c
 
   add-path:
     - ./
-    - ./Device_Configurator/GeneratedSource
+    - ../
+    - ../Device_Configurator/GeneratedSource
 
   define:
-    - CORE_NAME_CM7_0
-    - BASE_SRAM_NON_CACHE: BASE_SRAM_CM7_0
+    - CORE_NAME_CM7_1
+    - BASE_SRAM_NON_CACHE: BASE_SRAM_CM7_1

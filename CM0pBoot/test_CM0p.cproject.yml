@@ -51,5 +51,5 @@ project:
       files:
         - file: test.c
   layers:
-    - layer: ../Board/KIT_T2G-B-H_LITE/Board.clayer.yml
+    - layer: ../Board/KIT_T2G-B-H_LITE/Cortex-M0p/Board.clayer.yml
       type: Board

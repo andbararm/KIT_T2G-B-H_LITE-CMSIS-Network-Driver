@@ -67,5 +67,5 @@ project:
     - component: Keil::Network&MDK:Socket:UDP
 
   layers:
-    - layer: ../Board/KIT_T2G-B-H_LITE/Board.clayer.yml
+    - layer: ../Board/KIT_T2G-B-H_LITE/Cortex-M7-0/Board.clayer.yml
       type: Board
